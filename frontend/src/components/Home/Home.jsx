@@ -32,7 +32,7 @@ const Home = () => {
   /** BLOG SYSTEM */
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
-  the [sortOrder, setSortOrder] = useState("desc");
+  const [sortOrder, setSortOrder] = useState("desc");
   const [loading, setLoading] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
@@ -62,6 +62,7 @@ const Home = () => {
       if (data.success && Array.isArray(data.blogs)) {
         let filtered = [...data.blogs];
 
+        // Apply search filter
         if (search.trim()) {
           const s = search.toLowerCase();
           filtered = filtered.filter(
@@ -71,6 +72,7 @@ const Home = () => {
           );
         }
 
+        // Apply sort
         filtered.sort((a, b) => {
           const dateA = new Date(a.createdAt);
           const dateB = new Date(b.createdAt);
@@ -307,11 +309,7 @@ const Home = () => {
               {b.images?.length > 0 && (
                 <div className="blog-images">
                   {b.images.map((img, i) => (
-                    <img
-                      key={i}
-                      src={`${API_BASE}${img.startsWith("/") ? "" : "/"}${img}`}
-                      alt=""
-                    />
+                    <img key={i} src={`${API_BASE}${img}`} alt="" />
                   ))}
                 </div>
               )}
