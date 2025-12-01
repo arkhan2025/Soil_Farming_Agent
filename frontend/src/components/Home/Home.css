@@ -154,6 +154,9 @@ html, body {
   height: 85vh;
   overflow-y: auto;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  textarea{
+    height: 650px;
+  }
 }
 
 .modal-content h3 { 
