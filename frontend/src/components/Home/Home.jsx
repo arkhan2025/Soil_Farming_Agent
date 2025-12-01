@@ -52,13 +52,15 @@ const Home = () => {
     fetchBlogs();
   }, [search, sortOrder]);
 
+  /** FIXED FETCH */
   const fetchBlogs = async () => {
     setLoading(true);
     try {
       const res = await fetch(`${API_BASE}/blogs`);
       const data = await res.json();
-      if (Array.isArray(data)) {
-        let filtered = [...data];
+
+      if (data.success && Array.isArray(data.blogs)) {
+        let filtered = [...data.blogs];
 
         // Apply search filter
         if (search.trim()) {
@@ -66,7 +68,7 @@ const Home = () => {
           filtered = filtered.filter(
             (b) =>
               b.title.toLowerCase().includes(s) ||
-              b.description.toLowerCase().includes(s)
+              (b.description || "").toLowerCase().includes(s)
           );
         }
 
