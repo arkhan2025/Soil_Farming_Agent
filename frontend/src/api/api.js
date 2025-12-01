@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api";
+const API_URL = "https://soil-farming-agent-ki9z.onrender.com";
 
 // ── USERS ──
 export const registerUser = async (email, password) => {
