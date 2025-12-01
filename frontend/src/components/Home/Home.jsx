@@ -55,15 +55,35 @@ const Home = () => {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const q = new URLSearchParams();
-      if (search) q.append("q", search);
-      if (sortOrder) q.append("sort", sortOrder);
-
-      const res = await fetch(`${API_BASE}/blogs?${q.toString()}`);
+      const res = await fetch(`${API_BASE}/blogs`);
       const data = await res.json();
-      setBlogs(data || []); // FIXED: use data directly, not data.blogs
+      if (Array.isArray(data)) {
+        let filtered = [...data];
+
+        // Apply search filter
+        if (search.trim()) {
+          const s = search.toLowerCase();
+          filtered = filtered.filter(
+            (b) =>
+              b.title.toLowerCase().includes(s) ||
+              b.description.toLowerCase().includes(s)
+          );
+        }
+
+        // Apply sort
+        filtered.sort((a, b) => {
+          const dateA = new Date(a.createdAt);
+          const dateB = new Date(b.createdAt);
+          return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+        });
+
+        setBlogs(filtered);
+      } else {
+        setBlogs([]);
+      }
     } catch (err) {
       showPopup("Failed to fetch blogs");
+      setBlogs([]);
     } finally {
       setLoading(false);
     }
@@ -82,7 +102,7 @@ const Home = () => {
       setEditingPost(post);
       setTitle(post.title);
       setDescription(post.description);
-      setImages([]); // keep empty, old images shown separately
+      setImages([]);
     } else {
       setEditingPost(null);
       setTitle("");
@@ -287,7 +307,7 @@ const Home = () => {
               {b.images?.length > 0 && (
                 <div className="blog-images">
                   {b.images.map((img, i) => (
-                    <img key={i} src={`${API_BASE.replace("/api", "")}${img}`} alt="" />
+                    <img key={i} src={`${API_BASE}${img}`} alt="" />
                   ))}
                 </div>
               )}
