@@ -155,7 +155,7 @@ html, body {
   overflow-y: auto;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   textarea{
-    height: 450px;
+    height: 500px;
   }
 }
 
