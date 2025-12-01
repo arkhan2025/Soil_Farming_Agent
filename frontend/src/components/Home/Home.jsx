@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import "./Home.css";
 
 const API_BASE = "https://soil-farming-agent-ki9z.onrender.com/api";
+const IMAGE_BASE = "https://soil-farming-agent-ki9z.onrender.com"; // NEW IMAGE URL
 
 const Home = () => {
   const { user, isAdmin } = useAuth();
@@ -62,7 +63,6 @@ const Home = () => {
       if (data.success && Array.isArray(data.blogs)) {
         let filtered = [...data.blogs];
 
-        // Apply search filter
         if (search.trim()) {
           const s = search.toLowerCase();
           filtered = filtered.filter(
@@ -72,7 +72,6 @@ const Home = () => {
           );
         }
 
-        // Apply sort
         filtered.sort((a, b) => {
           const dateA = new Date(a.createdAt);
           const dateB = new Date(b.createdAt);
@@ -309,7 +308,11 @@ const Home = () => {
               {b.images?.length > 0 && (
                 <div className="blog-images">
                   {b.images.map((img, i) => (
-                    <img key={i} src={`${API_BASE}${img}`} alt="" />
+                    <img
+                      key={i}
+                      src={`${IMAGE_BASE}${img.startsWith("/") ? "" : "/"}${img}`}
+                      alt=""
+                    />
                   ))}
                 </div>
               )}
