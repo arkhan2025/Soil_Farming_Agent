@@ -1,0 +1,156 @@
+.view-soil {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  z-index: 1; /* lowered */
+}
+
+.view-soil h2 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.view-soil .controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.view-soil .controls input,
+.view-soil .controls select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1 1 200px;
+}
+
+.view-soil .bulk-delete-btn {
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-soil table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+}
+
+.view-soil th,
+.view-soil td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  min-width: 100px;
+}
+
+.view-soil th {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.view-soil tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* popup message */
+.popup-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #2e7d32;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  z-index: 2000;
+}
+
+/* modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.modal-actions button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .view-soil table {
+    font-size: 14px;
+  }
+  .view-soil th,
+  .view-soil td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-soil th,
+  .view-soil td {
+    padding: 6px;
+  }
+  .view-soil .controls input,
+  .view-soil .controls select,
+  .view-soil .bulk-delete-btn {
+    flex: 1 1 100%;
+  }
+}
+
+.view-soil .no-data {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}

@@ -1,0 +1,76 @@
+.view-distributor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.view-distributor h2 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.view-distributor .controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.view-distributor .controls input,
+.view-distributor .controls select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1 1 200px;
+}
+
+.view-distributor table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+}
+
+.view-distributor th,
+.view-distributor td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  min-width: 100px;
+}
+
+.view-distributor th {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.view-distributor tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .view-distributor table {
+    font-size: 14px;
+  }
+
+  .view-distributor th,
+  .view-distributor td {
+    padding: 8px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .view-distributor th,
+  .view-distributor td {
+    padding: 6px;
+  }
+
+  .view-distributor .controls input,
+  .view-distributor .controls select {
+    flex: 1 1 100%;
+  }
+}

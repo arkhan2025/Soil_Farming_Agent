@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #007b55;
+  text-align: center;
+  padding: 1rem 20px;
+  width: 100%;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.footer small {
+  opacity: 0.8;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

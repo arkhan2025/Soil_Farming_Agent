@@ -1,0 +1,30 @@
+.post-soil {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-soil h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.post-soil textarea {
+  height: 100px;
+  resize: none;
+}
+.post-soil button {
+  background-color: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.post-soil button:hover {
+  background-color: #1b5e20;
+}
