@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "./Home.css";
 
-const API_BASE = "https://soil-farming-agent-ki9z.onrender.com";
+const API_URL = "https://soil-farming-agent-ki9z.onrender.com/api";
 
 const Home = () => {
   const { user, isAdmin } = useAuth();

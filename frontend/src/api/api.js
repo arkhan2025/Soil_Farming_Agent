@@ -1,4 +1,4 @@
-const API_URL = "https://soil-farming-agent-ki9z.onrender.com";
+const API_URL = "https://soil-farming-agent-ki9z.onrender.com/api";
 
 // ── USERS ──
 export const registerUser = async (email, password) => {
