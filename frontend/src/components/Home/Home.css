@@ -149,11 +149,16 @@ html, body {
   background:#fff;
   padding:18px;
   border-radius:12px;
-  width: 95%;
-  max-width: 950px;
+
+  /* FINAL FIX 🛠️ */
+  position: relative;
+  width: 95% !important;
+  max-width: 1200px !important;
+
   height: 85vh;
   overflow-y: auto;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+
   textarea{
     height: 500px;
   }
@@ -360,7 +365,7 @@ html, body {
     max-height: 80vh; 
   }
   .modal-content { 
-    max-width: 950px; 
+    max-width: 1200px !important;
     height: 85vh;
   }
   .modal-content input,
