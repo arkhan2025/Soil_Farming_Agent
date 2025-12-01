@@ -61,7 +61,7 @@ const Home = () => {
 
       const res = await fetch(`${API_BASE}/blogs?${q.toString()}`);
       const data = await res.json();
-      setBlogs(data.blogs || []);
+      setBlogs(data || []); // FIXED: use data directly, not data.blogs
     } catch (err) {
       showPopup("Failed to fetch blogs");
     } finally {
@@ -103,7 +103,6 @@ const Home = () => {
       form.append("description", description);
       form.append("authorEmail", user.email || "unknown");
 
-      // only append new images if selected
       if (images.length > 0) {
         images.forEach((f) => form.append("images", f));
       }
